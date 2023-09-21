@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+import avatar from '../assets/avtr_new.jpg';
+---
+
+<div
+  class="first-screen flex justify-center py-20 bg-brand contain-paint max-[500px]:h-screen max-[500px]:items-center"
+>
+  <div>
+    <a href="/" class="text-center relative z-10">
+      <Image
+        src={avatar}
+        alt="Mark Fish (Pilaton)"
+        class="w-60 h-60 mb-6 hover:scale-105 animate-[morph_15s_linear_infinite_alternate]"
+      />
+      <p class="text-xl text-[#f2f6ff]">Hello! I am</p>
+      <h1 class="text-[clamp(40px,_5vw,_50px)] font-semibold text-white">Mark Fish</h1>
+    </a>
+  </div>
+
+  <div class="ovals">
+    <div class="o1"></div>
+    <div class="o2"></div>
+    <div class="o3"></div>
+  </div>
+
+  <div
+    class="muscle absolute inset-0 contain-paint max-w-[80rem] h-full mx-auto hidden min-[1150px]:block"
+  >
+  </div>
+
+  <div
+    class="scroll-arrow absolute bottom-[10vh] left-2/4 w-6 h-6 border-l border-b border-solid border-white"
+  >
+  </div>
+</div>
+
+<style lang="scss">
+  .first-screen {
+    .muscle {
+      &:before,
+      &:after {
+        content: '';
+        background-image: url(../assets/muscle.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: 0;
+        height: 314px;
+        width: 517px;
+        animation-delay: 0.5s;
+        animation-duration: 0.45s;
+        animation-name: handsUp;
+        animation-fill-mode: forwards;
+        @keyframes handsUp {
+          to {
+            transform: rotate(0deg);
+          }
+        }
+      }
+      &:before {
+        background-position: 0 0;
+        left: 0;
+        transform: rotate(-60deg);
+        transform-origin: right bottom;
+      }
+      &:after {
+        background-position: 100% 0px;
+        right: 0;
+        transform: rotate(60deg);
+        transform-origin: left bottom;
+      }
+    }
+
+    .ovals {
+      div {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.07);
+        z-index: 1;
+        will-change: border-radius, transform;
+        transform-origin: 60% 60%;
+        pointer-events: none;
+      }
+      .o1 {
+        width: 15vmax;
+        height: 15vmax;
+        left: 20vmin;
+        bottom: -5vmin;
+        animation:
+          morph 15s linear infinite alternate,
+          spin 20s linear infinite;
+        z-index: 1;
+        transform-origin: 60% 60%;
+      }
+      .o2 {
+        width: 50vmin;
+        height: 50vmin;
+        left: auto;
+        right: -10vmin;
+        top: auto;
+        bottom: 0;
+        animation:
+          morph 10s linear infinite alternate,
+          spin 27s linear infinite reverse;
+        transform-origin: 40% 60%;
+      }
+      .o3 {
+        width: 17vmax;
+        height: 17vmax;
+        left: 40vmin;
+        bottom: 15vmin;
+        animation:
+          morph 5s linear infinite alternate,
+          spin 29s linear infinite;
+        z-index: 1;
+        transform-origin: 0% 20%;
+      }
+    }
+
+    .scroll-arrow {
+      transform: translate(-50%, 0) rotate(-45deg);
+      animation: anim 2s ease-in-out infinite;
+      @media (min-width: 501px) {
+        display: none;
+      }
+
+      @keyframes anim {
+        0% {
+          transform: translate(-50%, 0) rotate(-45deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, 20px) rotate(-45deg);
+          opacity: 0;
+        }
+      }
+    }
+    @keyframes morph {
+      0% {
+        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+      }
+      100% {
+        border-radius: 40% 60%;
+      }
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+  }
+</style>

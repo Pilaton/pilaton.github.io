@@ -1,0 +1,62 @@
+---
+import '@fontsource-variable/nunito';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="google-site-verification" content="Zfzq9hpaOmQJrHVMnt1XpSOgpU6zL9X4xCcHDM_vHo8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+    background-color: #f2f6ff;
+    font-family: 'Nunito Variable', sans-serif;
+  }
+  a,
+  button {
+    transition-duration: 0.15s;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-in-out;
+    text-decoration: none;
+  }
+
+  hr {
+    opacity: 0.5;
+    border: 0;
+    height: 4px !important;
+    background-image: linear-gradient(
+      to right,
+      #bfe2ff 50%,
+      #337ab7 50%,
+      #337ab7 60%,
+      #ff9100 60%,
+      #ff9100 70%,
+      #05b5e6 70%,
+      #05b5e6 80%,
+      #b448b8 80%,
+      #b448b8 90%,
+      #bfe2ff 90%,
+      #bfe2ff 100%
+    );
+  }
+</style>

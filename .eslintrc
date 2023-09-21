@@ -1,0 +1,39 @@
+{
+  "extends": ["eslint:recommended", "plugin:astro/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // Добавьте свои правила ESLint здесь, если необходимо
+  },
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parserOptions": {
+        "extraFileExtensions": [".astro"]
+      },
+      "extends": ["plugin:astro/recommended"],
+      "plugins": ["astro"],
+      "rules": {
+        "astro/no-conflict-set-directives": "error",
+        "astro/no-unused-define-vars-in-style": "error"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "extraFileExtensions": [".ts"]
+      },
+      "rules": {
+        // Добавьте свои правила TypeScript ESLint здесь, если необходимо
+      }
+    }
+  ]
+}

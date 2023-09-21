@@ -1,0 +1,244 @@
+---
+import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import FirstScreen from '../components/FirstScreen.astro';
+import Github from '../utils/Github';
+import knowledge from '../content/knowledge/index.json';
+import Footer from '../components/Footer.astro';
+
+const github = new Github();
+const repoNames = ['OhMyZsh-full-autoupdate', 'MacSync', 'vscode-npm-lens-support'];
+
+const dataRepos = await Promise.all(
+  repoNames.map(async (repoName) => {
+    const data = await github.getData(repoName);
+    const lastVersion = await github.getLastVersion(repoName);
+    return {
+      name: data.name,
+      description: data.description,
+      url: data.html_url,
+      version: lastVersion.tag_name,
+    };
+  })
+);
+
+const siteTestData = [
+  {
+    name: 'Performance',
+    point: 100,
+  },
+  {
+    name: 'Accessibility',
+    point: 100,
+  },
+  {
+    name: 'Best Practices',
+    point: 100,
+  },
+  {
+    name: 'SEO',
+    point: 100,
+  },
+];
+---
+
+<Layout
+  title="Mark Fish | Full-stack developer"
+  description="Hello! I am Mark Fish (Pilaton) — I'm in business, bringing various ideas to life and solving business problems. I optimize everything and anything."
+>
+  <main>
+    <FirstScreen />
+
+    <div class="container max-w-4xl mx-auto px-4 pt-20">
+      <section class="about-me descr_p mb-20">
+        <h2 class="mb-5 font-semibold text-[2rem]">About me</h2>
+        <p class="text-18 text-descr mb-2">
+          Full-stack developer. I write, launch, optimize, automate. I do business and mostly my own
+          projects. I post useful solutions in opensource. <br />
+           In my spare time, I help other developers with code.
+        </p>
+        <p class="text-18 text-descr mb-2">
+          If you have something of interest to me - drop me a message, don't be shy!
+        </p>
+
+        <hr class="my-8" />
+
+        <div class="link_list flex gap-5 mb-4">
+          <a
+            href="https://github.com/Pilaton"
+            rel="noopener"
+            target="_blank"
+            class="flex items-center gap-1 text-descr border-b border-dotted border-current hover:opacity-80"
+          >
+            <Icon name="bi:github" class="h-4" /> GitHub
+          </a>
+          <a
+            href="https://ru.stackoverflow.com/users/441282/pilaton?tab=profile"
+            rel="noopener"
+            target="_blank"
+            class="flex items-center gap-1 text-descr border-b border-dotted border-current hover:opacity-80"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 120 120">
+              <path fill="#bcbbbb" d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"></path>
+              <path
+                fill="#f48023"
+                d="m38.8 68.4 37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18 35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2 29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"
+              ></path>
+            </svg>
+             StackOverflow
+          </a>
+          <a
+            href="https://habr.com/ru/users/MarkFish/"
+            rel="noopener"
+            target="_blank"
+            class="flex items-center gap-1 justify-center text-descr border-b border-dotted border-current hover:opacity-80"
+          >
+            <Icon name="simple-icons:habr" class="h-4" />
+             Habr
+          </a>
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="mb-5 font-semibold text-[2rem]">My Open Source projects</h2>
+        <div class="flex gap-5 flex-wrap">
+          {
+            dataRepos.map((repo) => (
+              <div class="flex-auto p-5 bg-white shadow-sm rounded-lg min-w-[310px] basis-0">
+                <a
+                  href={repo.url}
+                  rel="noopener"
+                  target="_blank"
+                  class="flex text-brand-text hover:opacity-80"
+                >
+                  <div class="mb-2 text-xl font-medium">{repo.name}</div>
+                </a>
+
+                <p class="mb-4 text-descr">{repo.description}</p>
+
+                <div class="flex gap-3 items-center text-descr">
+                  <div class="text-sm ">{repo.version}</div>
+                  <Icon name="bi:github" class="h-4" />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="mb-5 font-semibold text-[2rem]">Knowledge base</h2>
+        <div class="flex flex-wrap gap-4">
+          {
+            Object.entries(knowledge)
+              .sort()
+              .map(([name, imageName]: [name: string, imageName: string]) => (
+                <div class="flex flex-auto items-center gap-2 py-[6px] px-[10px] rounded-[.5rem] bg-white shadow-sm text-descr">
+                  <Image src={`/img/icon/${imageName}.svg`} alt={name} width={30} height={30} />{' '}
+                  {name}
+                </div>
+              ))
+          }
+          <div
+            class="flex items-center py-[6px] px-[10px] rounded-xl bg-white shadow-sm text-descr"
+          >
+            Other...
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="mb-5 font-semibold text-[2rem]">Contacts</h2>
+        <div class="grid sm:grid-cols-2">
+          <div class="pl-9">
+            <div class="mb-5 text-descr">
+              <div class="flex items-center text-black relative mb-1">
+                <Icon name="akar-icons:envelope" class="absolute -left-9 h-5 text-brand-text" />
+                 Email
+              </div>
+              <div class="flex items-center text-inherit">
+                pilaton.ever<Icon name="eva:at-fill" class="h-4 text-brand-text" />aleeas.com
+              </div>
+            </div>
+          </div>
+
+          <form action="https://getform.io/f/4d979b45-9c5f-4057-a5c6-c0f15ec4fd17" method="POST">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              class="w-full mb-4 rounded-lg py-2 px-3 border-2 border-solid border-[#e2ebff] shadow-sm"
+            />
+            <textarea
+              rows="5"
+              name="message"
+              placeholder="Message..."
+              required
+              class="w-full mb-4 rounded-lg py-2 px-3 border-2 border-solid border-[#e2ebff] shadow-sm"
+            ></textarea>
+            <button
+              type="submit"
+              class="w-full py-2 px-3 bg-brand text-white rounded-lg hover:opacity-90">Send</button
+            >
+          </form>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="mb-20">
+        <h3 class="mt-12 mb-2 font-semibold text-[2rem] text-center">Optimizing this site</h3>
+        <p class="mb-9 text-center text-descr">Data provided by Google Lighthouse</p>
+
+        <div class="grid grid-cols-4 auto-rows-auto max-w-lg mx-auto">
+          {
+            siteTestData.map((item) => (
+              <div class="flex flex-col items-center text-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center text-[#00a251] bg-[#ecfaf0] border-[5px] border-solid border-[#0c6] text-2xl">
+                  {item.point}
+                </div>
+                <div class="mt-3 text-[15px]">{item.name}</div>
+              </div>
+            ))
+          }
+
+          <div
+            class="limits col-span-full inline-flex gap-3 mt-8 mb-0 mx-auto p-2 border border-solid border-[#e0e0e0] rounded-[20px]"
+          >
+            <div class="item triangle">0-49</div>
+            <div class="item square">50-89</div>
+            <div class="item circle">90-100</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+<style lang="scss">
+  .item {
+    margin: 0 12px;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 4px;
+    }
+    &.triangle:before {
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 12px solid #ff4e42;
+    }
+    &.square:before {
+      background: #fea400;
+    }
+    &.circle:before {
+      background: #09ce6a;
+      border-radius: 50%;
+    }
+  }
+</style>
