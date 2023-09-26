@@ -6,9 +6,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "rules": {
-    // Добавьте свои правила ESLint здесь, если необходимо
-  },
+  "rules": {},
   "overrides": [
     {
       "files": ["*.astro"],
@@ -19,7 +17,8 @@
       "plugins": ["astro"],
       "rules": {
         "astro/no-conflict-set-directives": "error",
-        "astro/no-unused-define-vars-in-style": "error"
+        "astro/no-unused-define-vars-in-style": "error",
+        "@typescript-eslint/no-explicit-any": "error"
       }
     },
     {
@@ -31,9 +30,8 @@
       "parserOptions": {
         "extraFileExtensions": [".ts"]
       },
-      "rules": {
-        // Добавьте свои правила TypeScript ESLint здесь, если необходимо
-      }
+      "rules": {}
     }
-  ]
+  ],
+  "ignorePatterns": ["!src/**"]
 }

@@ -12,14 +12,14 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
     "@fontsource-variable/nunito": "^5.0.9",
-    "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
-    "astro": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "astro": "^3.1.4",
     "astro-icon": "^0.8.1",
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
-    "sass": "^1.67.0",
-    "tailwindcss": "^3.0.24",
+    "sass": "^1.68.0",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   }
 }
