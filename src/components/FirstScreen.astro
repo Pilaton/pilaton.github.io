@@ -4,14 +4,14 @@ import avatar from '../assets/avtr_new.jpg';
 ---
 
 <div
-  class="first-screen flex justify-center py-20 bg-brand contain-paint max-[500px]:h-screen max-[500px]:items-center"
+  class="first-screen flex justify-center bg-brand py-20 contain-paint max-[500px]:h-screen max-[500px]:items-center"
 >
   <div>
-    <a href="/" class="text-center relative z-10">
+    <a href="/" class="relative z-10 text-center">
       <Image
         src={avatar}
         alt="Mark Fish (Pilaton)"
-        class="w-60 h-60 mb-6 hover:scale-105 animate-[morph_15s_linear_infinite_alternate]"
+        class="mb-6 h-60 w-60 animate-[morph_15s_linear_infinite_alternate] hover:scale-105"
       />
       <p class="text-xl text-[#f2f6ff]">Hello! I am</p>
       <h1 class="text-[clamp(40px,_5vw,_50px)] font-semibold text-white">Mark Fish</h1>
@@ -25,12 +25,12 @@ import avatar from '../assets/avtr_new.jpg';
   </div>
 
   <div
-    class="muscle absolute inset-0 contain-paint max-w-[80rem] h-full mx-auto hidden min-[1150px]:block"
+    class="muscle absolute inset-0 mx-auto hidden h-full max-w-[80rem] contain-paint min-[1150px]:block"
   >
   </div>
 
   <div
-    class="scroll-arrow absolute bottom-[10vh] left-2/4 w-6 h-6 border-l border-b border-solid border-white"
+    class="scroll-arrow absolute bottom-[10vh] left-2/4 h-6 w-6 border-b border-l border-solid border-white"
   >
   </div>
 </div>

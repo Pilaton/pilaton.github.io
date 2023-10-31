@@ -18,14 +18,16 @@
       "rules": {
         "astro/no-conflict-set-directives": "error",
         "astro/no-unused-define-vars-in-style": "error",
-        "@typescript-eslint/no-explicit-any": "error"
+        "@typescript-eslint/no-explicit-any": "error",
+        "tailwindcss/no-custom-classname": "off"
       }
     },
     {
       "files": ["*.ts"],
       "extends": [
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:tailwindcss/recommended"
       ],
       "parserOptions": {
         "extraFileExtensions": [".ts"]
