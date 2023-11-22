@@ -35,5 +35,5 @@
       "rules": {}
     }
   ],
-  "ignorePatterns": ["!src/**"]
+  "ignorePatterns": ["!src/**","*.md"]
 }
