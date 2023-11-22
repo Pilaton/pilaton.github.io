@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.2.0...v2.3.0) (2023-11-22)
+
+
+### 🎉 Features
+
+* added README ([08a5a67](https://github.com/Pilaton/pilaton.github.io/commit/08a5a67d69df81c8cb5e6e6e60979f0b6bd856fc))
+
 ## [2.2.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.1.1...v2.2.0) (2023-11-22)
 
 
