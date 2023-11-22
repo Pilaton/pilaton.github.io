@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/Pilaton/pilaton.github.io/compare/v2.3.0...v2.3.1) (2023-11-22)
+
+
+### 🛠️ Bug Fixes
+
+* deploy config ([3214b0f](https://github.com/Pilaton/pilaton.github.io/commit/3214b0feff35a67ce48d133c156cb1b1918bf63b))
+
 ## [2.3.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.2.0...v2.3.0) (2023-11-22)
 
 
