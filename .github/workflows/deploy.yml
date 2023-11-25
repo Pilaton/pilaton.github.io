@@ -34,7 +34,10 @@ jobs:
     steps:
       - name: Logging
         run: |
-          echo "${{ toJSON(github.event) }}" | "${{ contains(github.event.head_commit.message, 'chore release') }}"
+          echo "${{ toJSON(github.event) }}"
+      - name: Logging chore release
+        run: |
+          echo "${{ contains(github.event.head_commit.message, 'chore release') }}"
 
   deploy:
     needs: build
