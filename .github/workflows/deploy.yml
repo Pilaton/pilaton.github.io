@@ -28,8 +28,15 @@ jobs:
         # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
         # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
+  logger:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Logging
+        run: |
+          echo "${{toJSON(github.event)}}"
+
   deploy:
-    name: ${{github.event.head_commit.message}}
     needs: build
     runs-on: ubuntu-latest
     if: "${{ contains(github.event.head_commit.message, 'chore release') }}"
