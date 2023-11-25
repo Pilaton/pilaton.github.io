@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.4](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.3...v2.4.4) (2023-11-25)
+
+
+### 🛠️ Bug Fixes
+
+* deploy ([b1d7458](https://github.com/Pilaton/pilaton.github.io/commit/b1d74585a9f1203672028419edeeeae8d2db1c18))
+* deploy test ([1d0daab](https://github.com/Pilaton/pilaton.github.io/commit/1d0daab8a23470cc289fa0e0f6f230c6e158b0d3))
+
 ## [2.4.3](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.2...v2.4.3) (2023-11-25)
 
 
