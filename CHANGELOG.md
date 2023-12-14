@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.7](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.6...v2.4.7) (2023-12-14)
+
+
+### Bug Fixes
+
+* **ci:** update configs ([4a54d16](https://github.com/Pilaton/pilaton.github.io/commit/4a54d16190f8e772146195ef14f45693e3174465))
+
 ## [2.4.6](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.5...v2.4.6) (2023-11-25)
 
 
