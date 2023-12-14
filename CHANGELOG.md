@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.8...v2.5.0) (2023-12-14)
+
+
+### Features
+
+* Added information about new packages to the site ([949783e](https://github.com/Pilaton/pilaton.github.io/commit/949783e814e6c5edb46a2445fbaf949fe9ef9e84))
+
 ## [2.4.8](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.7...v2.4.8) (2023-12-14)
 
 
