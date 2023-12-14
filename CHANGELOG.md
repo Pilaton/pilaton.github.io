@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.4.8](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.7...v2.4.8) (2023-12-14)
+
+
+### Bug Fixes
+
+* **ci:** Combined configs into one ([2a57160](https://github.com/Pilaton/pilaton.github.io/commit/2a571601c1cf654ef116ee93252a40d154a688c3))
+* **ci:** fix ([78b7286](https://github.com/Pilaton/pilaton.github.io/commit/78b72862df05149bcba428c28c2ec1492d86cf6d))
+* **ci:** fix ([9fc3e5f](https://github.com/Pilaton/pilaton.github.io/commit/9fc3e5f884d8fde927a30bc181ed53ba5a828e5c))
+* **ci:** fix again ([1e8415a](https://github.com/Pilaton/pilaton.github.io/commit/1e8415af5b7c229bd6b645020d4a48b5acfbbd5a))
+* **ci:** fix finish ([3af8093](https://github.com/Pilaton/pilaton.github.io/commit/3af8093f6eb751ed7ac53d87319d03b085e0db32))
+
 ## [2.4.7](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.6...v2.4.7) (2023-12-14)
 
 
