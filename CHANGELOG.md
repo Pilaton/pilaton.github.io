@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/Pilaton/pilaton.github.io/compare/v2.6.0...v2.6.1) (2024-01-31)
+
+
+### Bug Fixes
+
+* ci ([746c140](https://github.com/Pilaton/pilaton.github.io/commit/746c140dc63c9777d72ebbbb736347ed1bec8d6c))
+
 ## [2.6.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.5.0...v2.6.0) (2024-01-31)
 
 
