@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.5.0...v2.6.0) (2024-01-31)
+
+
+### Features
+
+* upgrade ([e506fbd](https://github.com/Pilaton/pilaton.github.io/commit/e506fbdd6e6b1b010feeb5956c15556764f91e03))
+
 ## [2.5.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.4.8...v2.5.0) (2023-12-14)
 
 
