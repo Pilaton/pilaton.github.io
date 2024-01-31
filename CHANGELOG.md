@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.4](https://github.com/Pilaton/pilaton.github.io/compare/v2.6.3...v2.6.4) (2024-01-31)
+
+
+### Bug Fixes
+
+* astro ci ([38b75c4](https://github.com/Pilaton/pilaton.github.io/commit/38b75c4585332ac20543abf7a3a8e0346a0cef2d))
+
 ## [2.6.3](https://github.com/Pilaton/pilaton.github.io/compare/v2.6.2...v2.6.3) (2024-01-31)
 
 
