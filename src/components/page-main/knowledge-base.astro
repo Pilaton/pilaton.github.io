@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import knowledge from '@content/knowledge/index.json';
+---
+
+<section class="mb-20">
+  <h2 class="mb-5 text-[2rem] font-semibold">Knowledge base</h2>
+  <div class="flex flex-wrap gap-4">
+    {
+      Object.entries(knowledge)
+        .sort()
+        .map(([name, imageName]: [name: string, imageName: string]) => (
+          <div class="flex flex-auto items-center gap-2 rounded-[.5rem] bg-white px-[10px] py-[6px] text-descr shadow-sm">
+            <Image src={`/img/icons/${imageName}.svg`} alt={name} width={30} height={30} /> {name}
+          </div>
+        ))
+    }
+    <div class="flex items-center rounded-xl bg-white px-[10px] py-[6px] text-descr shadow-sm">
+      Other...
+    </div>
+  </div>
+</section>

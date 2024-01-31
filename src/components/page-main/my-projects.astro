@@ -1,0 +1,55 @@
+---
+import Github from '@services/github';
+import { Icon } from 'astro-icon/components';
+
+const github = new Github();
+
+const repoNames = [
+  'OhMyZsh-full-autoupdate',
+  'MacSync',
+  'vscode-npm-lens-support',
+  'sleep-sleep',
+  'pubun',
+  'eslint-eco',
+];
+
+const dataRepos = await Promise.all(
+  repoNames.map(async (repoName) => {
+    const data = await github.getData(repoName);
+    const lastVersion = await github.getLastVersion(repoName);
+    return {
+      name: data.name,
+      description: data.description,
+      url: data.html_url,
+      version: lastVersion.tag_name,
+    };
+  })
+);
+---
+
+<section class="mb-20">
+  <h2 class="mb-5 text-[2rem] font-semibold">My Open Source projects</h2>
+  <div class="flex flex-wrap gap-5">
+    {
+      dataRepos.map((repo) => (
+        <div class="min-w-[310px] flex-auto basis-0 rounded-lg bg-white p-5 shadow-sm">
+          <a
+            href={repo.url}
+            rel="noopener"
+            target="_blank"
+            class="flex text-brand-text hover:opacity-80"
+          >
+            <div class="mb-2 text-xl font-medium">{repo.name}</div>
+          </a>
+
+          <p class="mb-4 text-descr">{repo.description}</p>
+
+          <div class="flex items-center gap-3 text-descr">
+            <div class="text-sm">{repo.version}</div>
+            <Icon name="bi:github" class="h-4" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

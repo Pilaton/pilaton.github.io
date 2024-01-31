@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import goldMedal from '@assets/goldMedal.svg';
+import silverMedal from '@assets/silverMedal.svg';
+import bronzeMedal from '@assets/bronzeMedal.svg';
+
+interface IBadgeCount {
+  gold: number;
+  silver: number;
+  bronze: number;
+}
+interface IStackOverflowData {
+  badge_counts: IBadgeCount;
+  reputation: number;
+}
+
+const res = await fetch(
+  'https://api.stackexchange.com/2.3/users/441282?order=desc&sort=reputation&site=ru.stackoverflow'
+);
+const data = (await res.json()) as { items: IStackOverflowData[] };
+const { badge_counts, reputation } = data.items[0];
+---
+
+<div class="flex flex-wrap items-start justify-between gap-x-8 gap-y-6">
+  <div class="space-y-4">
+    {
+      [
+        {
+          href: 'https://github.com/Pilaton',
+          name: 'GitHub',
+          icon: 'bi:github',
+        },
+        {
+          href: 'https://mastodon.social/@pilaton',
+          name: 'Mastodon',
+          icon: 'bi:mastodon',
+        },
+      ].map(({ href, name, icon }) => (
+        <a
+          href={href}
+          rel="noopener nofollow me"
+          target="_blank"
+          class="flex items-center gap-1 w-fit border-b border-dotted border-current text-descr hover:opacity-80"
+        >
+          <Icon name={icon} class="h-4" /> {name}
+        </a>
+      ))
+    }
+    <div class="flex items-center text-descr gap-1">
+      <Icon name="akar-icons:envelope" class="h-4" />
+      <span class="flex items-center">
+        pilaton.ever<Icon name="eva:at-fill" class="h-4 text-brand-text" />aleeas.com
+      </span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-x-8 gap-y-4 text-descr">
+    <a
+      href="https://ru.stackoverflow.com/users/441282/pilaton?tab=profile"
+      rel="noopener nofollow"
+      target="_blank"
+      class="flex items-center gap-1 border-b border-dotted border-current hover:opacity-80"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 120 120">
+        <path fill="#bcbbbb" d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"></path>
+        <path
+          fill="#f48023"
+          d="m38.8 68.4 37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18 35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2 29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"
+        ></path>
+      </svg>
+      StackOverflow
+    </a>
+
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-1">
+        <span>{reputation}</span>
+      </div>
+      {
+        [
+          {
+            img: goldMedal,
+            badge: 'gold',
+          },
+          {
+            img: silverMedal,
+            badge: 'silver',
+          },
+          {
+            img: bronzeMedal,
+            badge: 'bronze',
+          },
+        ].map(({ img, badge }) => (
+          <div class="flex items-center gap-1">
+            <Image src={img} alt="stackOverflow" class="w-8" />
+            <span>{badge_counts[badge as keyof IBadgeCount]}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
