@@ -29,7 +29,6 @@ jobs:
         uses: withastro/action@main
         with:
           node-version: '21.x'
-          package-manager: 'bun'
 
   deploy:
     needs: build
