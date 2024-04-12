@@ -12,15 +12,19 @@ permissions:
   id-token: write
 
 jobs:
-  release-please:
+  release-please-action:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@main
+        id: release-action
         with:
           release-type: node
+    outputs:
+      is-release-created: ${{ steps.release-action.outputs.releases_created }}
 
   build:
-    if: "${{ contains(github.event.head_commit.message, 'chore(main): release') }}"
+    needs: [release-please-action]
+    if: ${{ needs.release-please-action.outputs.is-release-created == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
@@ -39,4 +43,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@main
