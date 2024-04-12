@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.6.4...v2.7.0) (2024-04-12)
+
+
+### Features
+
+* Update packages and replace Eslint config ([5ae540b](https://github.com/Pilaton/pilaton.github.io/commit/5ae540b47de289d97b27b6b857c4fe8d54367a8e))
+
 ## [2.6.4](https://github.com/Pilaton/pilaton.github.io/compare/v2.6.3...v2.6.4) (2024-01-31)
 
 
