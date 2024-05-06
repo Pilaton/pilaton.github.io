@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/Pilaton/pilaton.github.io/compare/v2.7.1...v2.8.0) (2024-05-06)
+
+
+### Features
+
+* Update packages ([7e9d0b0](https://github.com/Pilaton/pilaton.github.io/commit/7e9d0b0abd97de42c8a2ab0e65c912c944953885))
+
 ## [2.7.1](https://github.com/Pilaton/pilaton.github.io/compare/v2.7.0...v2.7.1) (2024-04-12)
 
 
